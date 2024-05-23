@@ -20,6 +20,7 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.
 
 __You may encounter the error:__ 
+
        8 |     return response.data;
        9 |   } catch (error) {
     > 10 |     console.error("Error fetching data: ", error);
