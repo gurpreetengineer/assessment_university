@@ -67,7 +67,7 @@ const ListingPage = ({ onSelectItem }) => {
   };
 
   const handleSort = (order) => {
-    const sortedItems = [...items].sort((a, b) => {
+    const sortedItems = [...filteredItems].sort((a, b) => {
       if (order === 'asc') {
         return a.name.localeCompare(b.name);
       } else if (order === 'desc') {
