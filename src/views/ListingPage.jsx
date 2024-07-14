@@ -77,7 +77,7 @@ const ListingPage = ({ onSelectItem }) => {
       return 0;
     });
 
-    setItems(sortedItems);
+    setFilteredItems(sortedItems);
   };
 
   const handleFilterChange = (key, value) => {
