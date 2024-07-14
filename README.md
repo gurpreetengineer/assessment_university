@@ -20,19 +20,6 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.
 
 __You may encounter the error:__ 
-Console
-    console.error
-      Error fetching data:  Error: Failed to fetch data
-          at Object.<anonymous> (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/src/tests/apiService.test.js:23:37)
-          at Promise.then.completed (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/run.js:218:40)
-          at processTicksAndRejections (node:internal/process/task_queues:95:5)
-          at _runTest (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/run.js:66:9)
-          at _runTestsForDescribeBlock (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/run.js:60:9)
-          at run (/Users/brahmaandguruji/Desktop/My Repos/assessment-university/node_modules/jest-circus/build/run.js:25:3)
 
        8 |     return response.data;
        9 |   } catch (error) {
