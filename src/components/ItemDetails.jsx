@@ -5,12 +5,10 @@ import { Link } from 'react-router-dom';
 const ItemDetails = ({ item }) => {
   const [alreadySelectedItem, setAlreadySelectedItem] = useState(item);
   useEffect(() => {
-    console.log('item', item);
     if(!item) {
       setAlreadySelectedItem(getFromLocalStorage(process.env.REACT_APP_STORAGE_KEY_TWO));
     }
   }, [item]);
-  console.log("alreadySelectedItem", alreadySelectedItem)
   return (
     <div>
       {alreadySelectedItem ? <Fragment>

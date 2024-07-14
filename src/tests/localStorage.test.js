@@ -1,20 +1,16 @@
 import * as localStorageUtils from '../utils/localStorage';
 
-// Mocking localStorage
-global.localStorage = {
-  getItem: jest.fn(),
-  setItem: jest.fn(),
-  removeItem: jest.fn()
-};
-
 describe('localStorageUtils', () => {
+  let setItemMock, getItemMock, removeItemMock;
+
   beforeEach(() => {
-    console.error = jest.fn();
-  })
+    setItemMock = jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {});
+    getItemMock = jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {});
+    removeItemMock = jest.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {});
+  });
+
   afterEach(() => {
-    localStorage.getItem.mockClear();
-    localStorage.setItem.mockClear();
-    localStorage.removeItem.mockClear();
+    jest.clearAllMocks(); // Clears all mocks to prevent cross-test contamination
   });
 
   describe('saveToLocalStorage', () => {
@@ -24,7 +20,7 @@ describe('localStorageUtils', () => {
 
       localStorageUtils.saveToLocalStorage(STORAGE_KEY, data);
 
-      expect(localStorage.setItem).toHaveBeenCalledWith(STORAGE_KEY, JSON.stringify(data));
+      expect(setItemMock).toHaveBeenCalledWith(STORAGE_KEY, JSON.stringify(data));
     });
   });
 
@@ -33,22 +29,22 @@ describe('localStorageUtils', () => {
       const STORAGE_KEY = 'test_key';
       const data = { name: 'Test University' };
 
-      localStorage.getItem.mockReturnValue(JSON.stringify(data));
+      getItemMock.mockReturnValue(JSON.stringify(data));
 
       const result = localStorageUtils.getFromLocalStorage(STORAGE_KEY);
 
-      expect(localStorage.getItem).toHaveBeenCalledWith(STORAGE_KEY);
+      expect(getItemMock).toHaveBeenCalledWith(STORAGE_KEY);
       expect(result).toEqual(data);
     });
 
     it('should return null if no data found in local storage', () => {
       const STORAGE_KEY = 'test_key';
 
-      localStorage.getItem.mockReturnValue(null);
+      getItemMock.mockReturnValue(null);
 
       const result = localStorageUtils.getFromLocalStorage(STORAGE_KEY);
 
-      expect(localStorage.getItem).toHaveBeenCalledWith(STORAGE_KEY);
+      expect(getItemMock).toHaveBeenCalledWith(STORAGE_KEY);
       expect(result).toBeNull();
     });
   });
@@ -59,7 +55,7 @@ describe('localStorageUtils', () => {
 
       localStorageUtils.removeItemFromLocalStorage(STORAGE_KEY);
 
-      expect(localStorage.removeItem).toHaveBeenCalledWith(STORAGE_KEY);
+      expect(removeItemMock).toHaveBeenCalledWith(STORAGE_KEY);
     });
   });
 });

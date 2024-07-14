@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './ItemList.css';
 
 const ItemList = ({ items, onDelete, onSelect }) => {
   const [deletingIndex, setDeletingIndex] = useState(null);
@@ -13,11 +14,24 @@ const ItemList = ({ items, onDelete, onSelect }) => {
   };
 
   return (
-    <div>
+    <div className="item-list-container">
       {items.map((item, index) => (
-        <div key={index} className={deletingIndex === index ? 'fade-out' : ''}>
+        <div
+          key={index}
+          className={deletingIndex === index ? 'fade-out card' : 'card'}
+          onClick={() => onSelect(item)}
+        >
           <Link to="/details">
-            <h3 onClick={() => onSelect(item)}>{item.name}</h3>
+            <h2>{item?.name}</h2>
+            <p>
+              <strong>Country:</strong> {item?.country}
+            </p>
+            <p>
+              <strong>Domain:</strong> {item?.domains?.join(', ')}
+            </p>
+            <p>
+              <strong>Webiste:</strong> {item?.web_pages?.join(', ')}
+            </p>
           </Link>
           <button onClick={() => handleDelete(index)}>Delete</button>
         </div>

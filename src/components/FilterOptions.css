@@ -1,0 +1,109 @@
+/* App.css or your preferred stylesheet */
+.filter-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.filter-button:hover,
+.filter-button:focus {
+  background-color: #0056b3; /* Darker shade on hover/focus */
+}
+
+.filter-button:disabled {
+  background-color: #ccc; /* Disabled state color */
+  cursor: not-allowed;
+}
+
+.filter-card {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  position: fixed;
+  max-width: 20em;
+}
+
+.popup .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.popup .filter {
+  flex: 1 1 250px; /* Adjust width as needed */
+}
+
+.popup .filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.popup .filter select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popup .filter-button {
+  margin-top: 10px;
+}
+
+.filtered-results {
+  margin-top: 20px;
+}
+
+.filtered-results ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filtered-results ul li {
+  margin-bottom: 10px;
+}
+
+.filtered-results ul li strong {
+  font-weight: bold;
+}
+
+.filtered-results ul li ul {
+  padding-left: 20px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .filter-card {
+    width: 90%;
+  }
+
+  .popup {
+    width: 90%;
+  }
+
+  .popup .filter {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-card {
+    width: 95%;
+  }
+
+  .popup {
+    width: 95%;
+  }
+}
